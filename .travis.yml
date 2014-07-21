@@ -1,0 +1,27 @@
+language: python
+python:
+    - "2.6"
+    - "2.7"
+    - "3.2"
+    - "3.3"
+    - "3.4"
+    - "pypy"
+
+env:
+    - DJANGO_PACKAGE="Django>=1.5,<1.6"
+    - DJANGO_PACKAGE="Django>=1.6,<1.7"
+    - DJANGO_PACKAGE="https://www.djangoproject.com/download/1.7c1/tarball/"
+
+install:
+    - "pip install $DJANGO_PACKAGE"
+    - "pip install -r requirements.txt"
+    - "pip install -r dev-requirements.txt"
+    
+script:
+    - nosetests -c nose.cfg
+    
+allow_failures:
+    - python: "3.2"
+    - python: "3.3"
+    - python: "3.4"
+    - python: "pypy"
