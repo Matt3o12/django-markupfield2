@@ -22,7 +22,7 @@ before_script:
     - "export DJANGO_SETTINGS_MODULE=tests.django-settings"
 
 script:
-    - nosetests -c nose.cfg# unit tests
+    - nosetests -c nose.cfg
     - django-admin.py test --settings=functionalTests.django-settings --pythonpath=. functionalTests
 
 matrix:
