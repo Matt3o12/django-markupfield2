@@ -17,7 +17,10 @@ install:
     - "pip install $DJANGO_PACKAGE"
     - "pip install -r requirements.txt"
     - "pip install -r dev-requirements.txt"
-    
+
+before_script:
+    - "export export DJANGO_SETTINGS_MODULE=tests.django-settings"
+
 script:
     - nosetests -c nose.cfg
 
