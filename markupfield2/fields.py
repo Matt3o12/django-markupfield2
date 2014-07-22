@@ -1,8 +1,10 @@
-import markup
+from django.utils.encoding import python_2_unicode_compatible
+from . import markup
 from django.utils.safestring import mark_safe
 
 from django.db import models
 
+@python_2_unicode_compatible
 class Markup(object):
     def __init__(self, instance, raw_value, markup_field):
         self.instance = instance
@@ -17,7 +19,7 @@ class Markup(object):
     def rendered(self):
         return mark_safe(self.markup_field.markup_renderer(self.raw))
 
-    def __unicode__(self):
+    def __str__(self):
         return self.raw
 
 class MarkupFieldDescriptor(object):

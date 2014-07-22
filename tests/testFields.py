@@ -1,4 +1,4 @@
-from testloader import unittest
+from .testloader import unittest
 
 import django
 from markupfield2.fields import *
@@ -21,7 +21,7 @@ class TestMarkup(unittest.TestCase):
         self.assertEquals("Raw value", self.markup.rendered)
 
     def testGetUnicode(self):
-        self.assertEquals("Raw value", unicode(self.markup))
+        self.assertEquals("Raw value", str(self.markup))
 
 class TestMarkupFieldDescriptor(unittest.TestCase):
     def setUp(self):
