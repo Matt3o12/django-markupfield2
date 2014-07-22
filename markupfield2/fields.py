@@ -27,7 +27,6 @@ class MarkupFieldDescriptor(object):
         self.field = field
 
     def __get__(self, instance, owner):
-        # print "Called: %s; %s; %s; %s;" % (self, instance, type(instance), owner)
         if instance is None:
             raise AttributeError('Can only be accessed via an instance.')
 

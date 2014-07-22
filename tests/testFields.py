@@ -48,7 +48,6 @@ class TestMarkupFieldDescriptor(unittest.TestCase):
         self.assertTrue(isinstance(markup, MagicMock))
         MarkupMock.assert_called_once_with(myModel, raw_value="Some value", markup_field=self.field)
 
-
     def testSet(self):
         myModel = MagicMock(models.Model)
         self.field.configure_mock(name="myField")
