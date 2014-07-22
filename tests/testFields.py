@@ -1,5 +1,6 @@
-import unittest
-from django.db import models
+from testloader import unittest
+
+import django
 from markupfield2.fields import *
 from mock import patch, MagicMock
 import markupfield2
@@ -76,6 +77,7 @@ class TestMarkupField(unittest.TestCase):
         self.markupField = MarkupField("plain")
         self.markupField.test = None
 
+    @unittest.skipUnless(django.VERSION >= (1,7), "Django 1.7 or new required")
     @patch("django.db.models.TextField.deconstruct")
     def testDeconstruct(self, desconstMock):
         name = MagicMock(str)
